@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-La Tablita</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
+
+</head>
+<body>
+    <main class="mainResto">
+        <!-- <section class="linkResto">
+            <div class="picResto">
+                <img src="img/plato_carta.jpg" alt="">
+            </div>
+            <div class="nameResto">
+                <div class="vaina">
+                    <h2>La Tablita</h2>
+                    <h5 class="gris_txt">Del Vishian, Pilar</h5>
+                </div>
+            </div>
+            <div class="puntoResto">$100</span></div>
+        </section>
+        <br><br>
+        <section class="descResto ">
+            <p class="p10">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, labore eius. In ratione, sed corporis reprehenderit expedita obcaecati nulla fuga. Aliquam quam assumenda hic repellat cupiditate iure sit eaque suscipit!
+            </p>
+        </section> -->
+    </main>
+
+    <nav class="agregarCarrito">
+        <div class="flex">
+            <div class="flex">
+                <button id="restar" class="iconos botonesCarrito" onclick="restar()">remove</button>
+                <p class="botonesCarrito" id="cantidad">1</p>
+                <button id="sumar" class="iconos botonesCarrito" onclick="sumar()">add</button>
+            </div>
+                <button class="btnAgregar"><i class="iconos">post_add</i>Agregar al pedido</button>
+        </div>
+        SubTotal:<span id="subtotal"></span>
+    </nav>   
+
+    <script src="js/leer-json-desc_plato.js"></script>
+    <script src="js/acciones_resto.js"></script>
+</body>
+</html>
