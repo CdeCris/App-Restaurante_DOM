@@ -533,6 +533,7 @@ nav.menuInferior{
 			flex-direction: column;
 			justify-content: space-evenly;
 			color: gray;
+			width: 65%;
 		}
 	}
 }
