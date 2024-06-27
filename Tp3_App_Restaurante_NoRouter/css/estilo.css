@@ -497,7 +497,8 @@ nav.menuInferior{
 	flex-direction: column;
 	gap: 20px;
 	padding: 20px;
-
+	padding-bottom: 70px;
+	
 	.plato{
 		text-decoration:none;
 		height: 100px;
