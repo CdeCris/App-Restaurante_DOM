@@ -467,6 +467,9 @@ nav.menuInferior{
 			img{
 				overflow: hidden;
 				border-radius: 50%;
+				height: 100%;
+                		width: 100%;
+				object-fit: cover;
 			}
 			.precio_plato{
 				background-color: rgb(2,224,224);
@@ -488,6 +491,7 @@ nav.menuInferior{
 			flex-direction: column;
 			justify-content: space-evenly;
 			color: gray;
+			width: 70%;
 		}
 	}
 }
