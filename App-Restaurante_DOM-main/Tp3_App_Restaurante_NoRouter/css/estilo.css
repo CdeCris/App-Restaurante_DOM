@@ -1,0 +1,653 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root{
+	--verde: rgb(19,209,146);
+	--gris: rgb(136,136,136);
+	--gris-bg: rgb(230,230,230);
+}
+
+.verde_txt{
+	color: var(--verde);
+}
+
+.gris_txt{
+	color: var(--gris);
+}
+
+
+
+/* width 
+Ancho y alto del contenedor SCROLLBAR
+*/
+::-webkit-scrollbar {
+	height: 5px;
+}
+
+/* Track 
+caminito donde se mueve la barra
+*/
+::-webkit-scrollbar-track {
+	background: #ffffff;
+}
+
+/* Handle 
+barra de scroll
+*/
+::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 3px;
+}
+
+/* Handle on hover 
+Barra de scroll cuando el mouse esta sobre ella
+
+*/
+::-webkit-scrollbar-thumb:hover {
+	background: #ce1c1c;
+}
+
+
+
+body {
+	height: 100vh;
+	width: 100%;
+	font-family: sans-serif;
+}
+
+.f28 {
+	font-size: 28pt !important;
+}
+
+.f20 {
+	font-size: 20pt !important;
+}
+
+.f10 {
+	font-size: 10pt !important;
+}
+.p10{
+	padding: 10px;
+}
+.flex{
+	display: flex;
+}
+header {
+	height: 75%;
+	width: 100%;
+	flex-direction: column;
+	gap: 15px;
+
+	.portada {
+		height: 65%;
+		width: 100%;
+		background-color: lightblue;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.450), rgba(0, 0, 0, 0.800));
+		background-color: blue;
+		background-image: url("../img/restaurante.jpg"); 
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		display: flex;
+		position: relative;
+
+	}
+
+	.portada::before {
+
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.450), rgba(0, 0, 0, 0.800));
+	}
+
+	.saludo {
+		color: rgb(255, 255, 255, 0.8);
+		position: absolute;
+		left: 5%;
+		bottom: 10%;
+		z-index: 1;
+	}
+
+	/* : pseudoclase  ::pseudoelemento */
+
+	nav.categorias {
+		height: 25%;
+		width: 100% auto;
+		background-color: rgb(215, 235, 235);
+		padding: 30px;
+		display: flex;
+		gap: 15px;
+		overflow: hidden;
+		overflow-x: scroll;
+		justify-content: space-evenly;
+	}
+
+	/*ancor: cuatros intancias de un link.
+	link: Instancia incial de un link.
+	active: Cuando hacemos click en el enlace.
+	visited: Cuando abrimos y redireccionamos a un link.
+	hover: Cuando pasamos el mouse por el enlace o elemento.
+	*/
+	a:link {
+		color: red;
+	}
+
+	a:visited {
+		color: violet;
+	}
+
+	a:hover {
+		color: black;
+	}
+
+	a:active {
+		color: aqua;
+		text-shadow: 0 0 10px black;
+	}
+
+}
+.btn-cat {
+
+	height: 70px;
+	flex: 0 0 80px;
+	/* background-color: rgb(205, 225, 225); */
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+
+}
+.buscador {
+	display: flex;
+	position: absolute;
+	bottom: -20px;
+	left: 5%;
+	height: 40px;
+	width: 90%;
+	margin: auto;
+	background-color: beige;
+	box-shadow: 0 10px 20px -10px rgb(0, 0, 0, 0.7);
+	overflow: hidden;
+	z-index: 1;
+
+	.icono {
+		width: 40px;
+		background-color: aquamarine;
+		display: grid;
+		place-items: center;
+	}
+
+	input[type=search] {
+		border: none;
+		outline: none;
+		padding: 10px;
+		width: calc(100% - 80px);
+		cursor: pointer;
+	}
+
+	input[type=submit] {
+		width: 40px;
+		border: none;
+		outline: none;
+		background-color: rgb(255, 255, 255, 0.8);
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+
+	}
+
+	input[type=submit]:hover {
+		transform: scale(1.2);
+
+	}
+}
+
+main {
+	height: 100px auto;
+	width: 100%;
+	padding: 20px;
+
+	
+	.restaurantes {
+		height: 100px auto;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+
+		.resto {
+			height: 160px;
+			width: 100%;
+			flex: 0 0 160px;
+			position: relative;
+			box-shadow: 0 0 8px -3px black;
+			border-radius: 15px;
+			
+			.distancia{
+				position: absolute;
+				top:5px;
+				left: 30%;
+				color: white;
+				text-shadow: 0 0 5px black;
+				/*z-index: 400;
+				Si pongo distancia arriba de todo, poner z-index
+				para que se superponga a la imagen
+				*/
+			}
+			.puntuacion{
+				position: absolute;
+				right: -10px;
+				top:-10px;
+				background-color: var(--verde);
+				padding: 10px;
+				border-radius: 10px 0 10px 0;
+				font-weight: bolder;
+				color: white;
+				box-shadow: 0 0 8px -3px black;
+			}
+		}
+	}
+	.imagen_resto {
+		position: absolute;
+		height: 100%;
+		width: 45%;
+		img{
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+		border-radius: 15px 0 0 15px;
+	}
+	.desc_resto{
+		position: absolute;
+		right: 0;
+		height: 100%;
+		width :60%;
+		background-color: lightblue;
+		border-radius: 0 15px 15px;
+		border-bottom-left-radius: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 10px;
+		.precio_val{
+			display: flex;
+			justify-content: space-between;
+				.valoracion{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+		}
+	}
+
+
+}
+
+/*
+flex: 0 0 160px
+primer parametro: flex-grow, la capcidad del elemento hijo de agrandarse si es nesesario
+segundo parametro: flex-shrink: es la capacidad del elemento hijo de achicarse si es necesario
+tercer parametro: flex-basis:  
+Depende del flex-direccion.
+Si esta en column: Se adapta al alto del elemento padre 
+Si esta en row: Se adapta al ancho del elemento padre
+*/
+
+.mainResto{
+	height: 100%;
+	width: 100%;
+	background-color: rgb(230, 230, 230);
+	padding: 0;
+	
+	.linkResto{
+		height: 60%;
+		width: 100%;
+		background-color: aquamarine;
+		position: relative;
+	}
+	.picResto {
+		height: 80%;
+		width: 100%;
+		/* background-image: url("../img/restaurante.jpg");
+		background-position: center;
+		background-size: cover; */
+		position: relative;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	/* .picResto::before {
+		content: ''; /* cada pseudo elemtno (before y after) deberan tener un contenido, sino no sran mostrados */
+	   /* position: absolute;
+	   height: 100%;
+	   width: 100%;
+	   background: linear-gradient(180deg,rgb(0, 0, 0),rgb(230, 230, 230) );
+	   
+ */ 
+	
+	.nameResto{
+		height: 20%;
+		width: 100%;
+		background-color: rgb(230, 230, 230);
+		display: flex;
+		justify-content: space-between;
+		padding: 30px;
+		padding-top: 40px;
+
+	}
+	.puntoResto{
+		position: absolute;
+		bottom: 14%;
+		right: 14%;
+		padding: 10px;
+		background-color: aquamarine;
+		display: grid;
+		place-items: center;
+		font-size: 16pt;
+		color: white;
+		font-weight: bolder;
+		border-radius: 14px 0 14px 0;	
+		box-shadow: 0 0 15px rgb(20, 20, 20);
+	}
+
+}
+
+nav.menuInferior{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	background-color: white;
+	a{
+		flex: 0 0 33.33%;
+		cursor: pointer;
+		text-align: center;
+		line-height: 45px;
+		text-decoration: none;
+		transition: all 0.1s ease-in-out;
+		/* color: rgb(218, 212, 212); */
+	}
+	a:hover{
+		/* text-shadow: 0 0 10px black; */
+		border-top: solid 3px var(--verde);
+		font-weight: 400;
+
+	}
+	a.active{
+		border-top: solid 3px var(--verde);
+		font-weight: 700;
+
+	}
+	button{
+		flex: 0 0 33.33%;
+		cursor: pointer;
+		text-align: center;
+		line-height: 45px;
+		text-decoration: none;
+		transition: all 0.1s ease-in-out;
+		/* color: rgb(218, 212, 212); */
+	}
+	button:hover{
+		/* text-shadow: 0 0 10px black; */
+		border-top: solid 3px var(--verde);
+		font-weight: 400;
+
+	}
+	button.active{
+		border-top: solid 3px var(--verde);
+		font-weight: 700;
+
+	}
+	/* background-color: transparent!important; */
+
+	
+}
+.datos{
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+
+}
+.descResto{
+	padding: 20px;
+	padding-top: 30px;
+}
+
+.cerrarMenu{
+	position: sticky;/*Se queda  pegado*/
+	height: 100%;
+	height: 100px;
+	background-color: white;
+	.headerMenu{
+		position: relative;
+		display: grid;
+		place-items: center;
+		padding: 20px;
+		box-shadow: 0 0 8px -3px black;
+	}
+	.close{
+		position: absolute;
+		top: 20px;
+		left: 10px;
+		
+	}
+	
+}
+
+
+.menuResto{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+
+	.plato{
+		text-decoration:none;
+		height: 100px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		.imagen_platillo {
+			position: relative;
+			height: 100%;
+			width: 100px;
+			img{
+				overflow: hidden;
+				border-radius: 50%;
+				height: 100%;
+                		width: 100%;
+				object-fit: cover;
+			}
+			.precio_plato{
+				background-color: rgb(2,224,224);
+				position: absolute;
+				font-weight:bold;
+				border-radius: 15px 0;
+				right: -15px;
+				bottom: 20px;
+				box-shadow: 0 5px 10px gray;
+				color: white;
+				padding: 5px 10px;
+
+			}
+
+		}
+		.desc_platillo{
+			padding-left: 25px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			color: gray;
+			width: 70%;
+		}
+	}
+}
+
+.menuResenia{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+	padding-bottom: 70px;
+	
+	.plato{
+		text-decoration:none;
+		height: 100px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		.imagen_platillo {
+			position: relative;
+			height: 100%;
+			width: 100px;
+			img{
+				overflow: hidden;
+				border-radius: 50%;
+			}
+			.precio_plato{
+				background-color: rgb(2,224,224);
+				position: absolute;
+				font-weight:bold;
+				border-radius: 15px 0;
+				right: -15px;
+				bottom: 20px;
+				box-shadow: 0 5px 10px gray;
+				color: white;
+				padding: 5px 10px;
+
+			}
+
+		}
+		.desc_platillo{
+			padding-left: 25px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			color: gray;
+			width: 65%;
+		}
+	}
+}
+
+main {
+	height: 100px auto;
+	width: 100%;
+	padding: 20px;
+	
+	.restaurantes {
+		height: 100px auto;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+
+		.resto {
+			height: 160px;
+			width: 100%;
+			flex: 0 0 160px;
+			position: relative;
+			box-shadow: 0 0 8px -3px black;
+			border-radius: 15px;
+		}
+	}
+}
+
+.centrar{
+	display: grid;
+	place-items: center;
+	margin-bottom: 50px;
+	h4{
+		font-family:Verdana, Geneva, Tahoma, sans-serif;
+		font-size: 18px;
+		font-weight: 100;
+		padding-bottom: 8px;
+		border-bottom: solid 3px var(--verde);
+		font-weight: 700;
+	}
+}
+/*Fin platillo*/
+.agregarCarrito{
+	position: fixed;
+	bottom: 0;
+	background-color: var(--gris-bg);
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+
+	.botonesCarrito {
+		height: 40px;
+		width: 40px;
+		display: grid;
+		place-items: center;
+		background-color: aqua;
+		border: 0;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+
+	button:hover{
+		box-shadow: 0 2px 0 black;
+		cursor: pointer;
+	}
+
+	.btnAgregar{
+		margin-left: 2px;
+		flex: 1;
+		background-color: aqua;
+		font-weight: 700;
+		border: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		font-size: 18px;
+		transition: all 0.3s ease-in-out;
+
+	}
+}
+
+
+
+@media screen and (orientation=landscape) {
+	/*landscape: apisado, en compu*/
+	/* height */
+	main {
+		.restaurantes{
+			flex-wrap: wrap;
+			flex-direction: row;
+			.resto{
+				height: 160px;
+				flex: 0 0 calc(50% - 30px);
+			}
+	
+		}
+	}
+	::-webkit-scrollbar {
+		height: 0px;
+	}
+
+	.menuResto{
+		flex-direction: row!important;
+		flex-wrap: wrap;
+		.plato{
+			flex: 0 0 calc(50% - 10px);
+		}
+	}
+}
